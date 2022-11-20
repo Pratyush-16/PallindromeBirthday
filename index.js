@@ -87,20 +87,20 @@ function getAllDateFormats(date) {
 
 //console.log(getAllDateFormats(date));
 
-// function checkPalindromeForAllDateFormats(date){
-//     var listOfPalindromes = getAllDateFormats(date);
+function checkPalindromeForAllDateFormats(date){
+    var listOfPalindromes = getAllDateFormats(date);
   
-//     var flag = false;
+    var flag = false;
   
-//     for(var i=0; i < listOfPalindromes.length; i++){
-//       if(isPalindrome(listOfPalindromes[i])){
-//         flag = true;
-//         break;
-//       }
-//     } 
+    for(var i=0; i < listOfPalindromes.length; i++){
+      if(isPalindrome(listOfPalindromes[i])){
+        flag = true;
+        break;
+      }
+    } 
   
-//     return flag;
-//   }
+    return flag;
+  }
 
 // function isLeapYear(year){
 //     if(year % 400 ===0){
