@@ -155,27 +155,23 @@ function getNextDate(date){
     };
 }
 
-// var date ={
-//     day: 31,
-//     month: 12,
-//     year: 2020
-// };
 
 
-// function getNextPallindromeDate(date){
-//     var ctr =0;
-//     var nextDate = getNextDate(date);
+
+function getNextPallindromeDate(date){
+    var ctr =0;
+    var nextDate = getNextDate(date);
     
-//     while(1){
-//         ctr++;
-//         var isPalindrome = checkPalindromeForAllDateFormats(nextDate);
+    while(1){
+        ctr++;
+        var isPalindrome = checkPalindromeForAllDateFormats(nextDate);
 
-//         if(isPalindrome){
-//             break;
-//         }
-//         nextDate = getNextDate(nextDate);
-//     }
-//     return (ctr, nextDate);
-// }
+        if(isPalindrome){
+            break;
+        }
+        nextDate = getNextDate(nextDate);
+    }
+    return (ctr, nextDate);
+}
 
-//   console.log(getNextPallindromeDate(date));
+  console.log(getNextPallindromeDate(date));
