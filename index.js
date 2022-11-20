@@ -24,10 +24,10 @@ function reverseString(str){
 }
 //console.log(reverseString('pratyush'));
 
-// function isPalindrome(str){
-//     var reverse = reverseString(str);
-//     return str === reverse;
-// }
+function isPalindrome(str){
+    var reverse = reverseString(str);
+    return str === reverse;
+}
     // if(str === reverse){
     //     return true;
     // }else{
