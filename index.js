@@ -1,21 +1,44 @@
-// const bdayInput = document.querySelector("#birthday");
-// const chckBtn = document.querySelector("#clickme");
-// const outputAns = document.querySelector("#output")
+ const bdayInput = document.querySelector("#birthday-date");
+const chckBtn = document.querySelector(".clickme");
+ const outputAns = document.querySelector(".output")
 
 // function checkBday(){
 //     console.log("clicked");
 //     outputAns.innerText = "i am clicked"
 // }
-// var date ={
-//     day: 2,
-//     month:02,
-//     year:2020
-// }
+chckBtn.addEventListener('click', clickHandler); 
+
+function clickHandler(){
+    
+        var bdayStr = bdayInput.value
+        if(bdayStr !== '') {
+            var listOfDate = bdayStr.split('-')
+            var date = {
+                day: Number(listOfDate[2]),
+                month:Number(listOfDate[1]),
+                year:Number(listOfDate[0])
+            }
+            var isPalindrome = checkPalindromeForAllDateFormats(date)
+            if(isPalindrome) {
+                outputAns.innerText = "Yes, Your birthday is Palindrome "
+            }else{
+                var [ctr , nextDate] = getNextPallindromeDate(date)
+                outputAns.innerText = `You missed by ${ctr} days and your nearest palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year} ` 
+    
+            }
+           
+        } else{
+            outputAns.innerText = "Please Enter your birthday date"
+        }
+    }
+
+
 var date ={
-    day: 31,
-    month: 12,
-    year: 2020
+    day: 15,
+    month: 8,
+    year: 2021
 };
+
 function reverseString(str){
     var listOfChars = str.split('');
     var reverseListOfChars = listOfChars.reverse() ;
@@ -28,26 +51,11 @@ function isPalindrome(str){
     var reverse = reverseString(str);
     return str === reverse;
 }
-    // if(str === reverse){
-    //     return true;
-    // }else{
-    //     return false;
-    // }
-
 
 // console.log(isPallindrome('242'));
 // console.log(isPallindrome('lol'));
 // console.log(isPallindrome('racecar'));
 // console.log(isPallindrome('ababf'));
-
-
-//chckBtn.addEventListener('click', reverseString); 
-
-// var date ={
-//     day: 4,
-//     month:7,
-//     year:2020
-// }
 
 function convertDateToString(date){ 
     var dateStr = {day:'', month:'', year:''};
@@ -89,7 +97,6 @@ function getAllDateFormats(date) {
 
 function checkPalindromeForAllDateFormats(date){
     var listOfPalindromes = getAllDateFormats(date);
-  
     var flag = false;
   
     for(var i=0; i < listOfPalindromes.length; i++){
@@ -101,6 +108,7 @@ function checkPalindromeForAllDateFormats(date){
   
     return flag;
   }
+
 
 function isLeapYear(year){
     if(year % 400 ===0){
@@ -155,9 +163,6 @@ function getNextDate(date){
     };
 }
 
-
-
-
 function getNextPallindromeDate(date){
     var ctr =0;
     var nextDate = getNextDate(date);
@@ -171,7 +176,7 @@ function getNextPallindromeDate(date){
         }
         nextDate = getNextDate(nextDate);
     }
-    return (ctr, nextDate);
+    return [ctr, nextDate];
 }
 
-  console.log(getNextPallindromeDate(date));
+  //console.log(getNextPallindromeDate(date)); 
